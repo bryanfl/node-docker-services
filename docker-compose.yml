@@ -1,0 +1,9 @@
+version: '3.5'
+
+services:
+  node-api:
+    container_name: node-api
+    image: name_image
+    ports:
+      - "5202:5202"
+    restart: always
