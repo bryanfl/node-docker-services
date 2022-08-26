@@ -1,4 +1,4 @@
-const Response = require('../utils/response');
+const Response = require('../../utils/response');
 const AutosStore = require("./store");
 
 class AutosController {

@@ -7,7 +7,7 @@ class SqlConnection {
   async #connect(codEmpresa) {
     try {
       const nomDB = this.#getNameDatabase(codEmpresa);
-      await sql.connect(generateSqlConfig(nomDB)); // TODO: nomDB  "AGPS_Rapido"
+      await sql.connect(generateSqlConfig(nomDB)); //
       // console.log("Conectado correctamente a la base de datos");
     } catch (err) {
       console.log("Ocurrio un error: ", err.message);

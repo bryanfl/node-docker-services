@@ -1,4 +1,4 @@
-const SqlConnection = require("../utils/sql");
+const SqlConnection = require("../../utils/sql");
 
 class AutosStore {
   #sql;
