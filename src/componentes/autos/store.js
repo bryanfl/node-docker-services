@@ -9,7 +9,7 @@ class AutosStore {
 
   async getAutosDB() {
     // const autos = await this.#sql
-    //   .executeProcedure("ProcBusquedaUnidad ", "", 2)
+    //   .executeProcedure("procedimiento", "", 2)
     //   .catch((err) => {
     //     throw new Error(err);
     //   });

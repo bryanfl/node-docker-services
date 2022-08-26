@@ -4,9 +4,9 @@ const sql = require("mssql");
 class SqlConnection {
   constructor() {}
 
-  async #connect(codEmpresa) {
+  async #connect(key) {
     try {
-      const nomDB = this.#getNameDatabase(codEmpresa);
+      const nomDB = this.#getNameDatabase(key);
       await sql.connect(generateSqlConfig(nomDB)); //
       // console.log("Conectado correctamente a la base de datos");
     } catch (err) {
@@ -14,13 +14,13 @@ class SqlConnection {
     }
   }
 
-  async executeProcedure(procedure, parameters, index, codEmpresa) {
-    await this.#connect(codEmpresa);
+  async executeProcedure(procedure, parameters, parameters_2, key) {
+    await this.#connect(key);
 
     return new Promise((resolve, reject) => {
       const request = new sql.Request();
-      request.input("Parametros", sql.VarChar(), parameters);
-      request.input("Indice", sql.Int, index);
+      request.input("paremtro_1", sql.VarChar(), parameters);
+      request.input("paremtro_2", sql.Int, parameters_2);
       request.execute(procedure, (err, result) => {
         if (err) {
           sql.close();
@@ -37,12 +37,12 @@ class SqlConnection {
       });
     });
   }
-  #getNameDatabase(codEmpresa) {
+  #getNameDatabase(key) {
     const databases = {
       key: 'value'
     };
 
-    return databases[codEmpresa];
+    return databases[key];
   }
 }
 
